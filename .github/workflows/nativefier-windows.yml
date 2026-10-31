@@ -1,0 +1,52 @@
+name: Build EXE with Nativefier
+
+on:
+  workflow_dispatch:
+    inputs:
+      app_url:
+        description: "Deployed app URL (e.g. https://github.com/mehdizahedi1379/LogicBench)"
+        required: true
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Make icons (png -> ico)
+        shell: bash
+        run: |
+          node scripts/generate-icon.js
+          python -m pip install pillow
+          python -c "from PIL import Image; Image.open('build/icon.png').save('build/icon.ico', sizes=[(16,16),(32,32),(48,48),(64,64),(128,128),(256,256)])"
+
+      - name: Install Nativefier
+        run: npm install -g nativefier
+
+      - name: Build
+        shell: bash
+        run: |
+          nativefier --name "LogicBench" \
+            --platform windows --arch x64 \
+            --icon build/icon.ico \
+            --width 1280 --height 800 \
+            --single-instance \
+            --disable-dev-tools \
+            --internal-urls ".*github\.io.*" \
+            "${{ github.event.inputs.app_url }}" out
+
+      - name: Zip
+        shell: pwsh
+        run: |
+          $dir = Get-ChildItem out -Directory | Select-Object -First 1
+          Compress-Archive -Path "$($dir.FullName)\*" -DestinationPath LogicBench-nativefier-win-x64.zip
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: logicbench-nativefier
+          path: LogicBench-nativefier-win-x64.zip
+          if-no-files-found: error
