@@ -1,0 +1,47 @@
+{
+  "name": "LogicBench // Desktop Electronics Workbench",
+  "short_name": "LogicBench",
+  "description": "Local-first professional digital electronics workbench, microcontrollers, K-maps, simulation, and knowledge management.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "background_color": "#090d16",
+  "theme_color": "#090d16",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Base Converter",
+      "url": "/#base-converter",
+      "description": "Multi-radix and IEEE-754 converter"
+    },
+    {
+      "name": "Timer & PWM",
+      "url": "/#timer-pwm",
+      "description": "MCU Timer prescaler & top calculator"
+    },
+    {
+      "name": "Knowledge Notes",
+      "url": "/#notes",
+      "description": "Markdown engineering notes & wiki-links"
+    },
+    {
+      "name": "Hardware Projects",
+      "url": "/#projects",
+      "description": "BOM costing & pin map planner"
+    }
+  ]
+}

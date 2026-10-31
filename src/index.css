@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-canvas: #0b0f17;
+    --bg-surface: #111722;
+    --bg-surface-elevated: #18202e;
+    --bg-surface-subtle: #202b3c;
+    --bg-hover: rgba(255, 255, 255, 0.06);
+    --bg-active: rgba(255, 255, 255, 0.1);
+    
+    --border-subtle: #1e293b;
+    --border-medium: #334155;
+    --border-strong: #475569;
+    
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    
+    --color-phosphor: #10b981;
+    --color-phosphor-glow: rgba(16, 185, 129, 0.25);
+    --color-amber: #f59e0b;
+    --color-logic-cyan: #06b6d4;
+    --color-trace-magenta: #ec4899;
+    --color-bus-blue: #38bdf8;
+    --color-danger: #ef4444;
+    
+    --graticule-line: rgba(56, 189, 248, 0.05);
+    --graticule-major: rgba(56, 189, 248, 0.12);
+
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-fa: 'Vazirmatn', 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  [data-theme="light"] {
+    --bg-canvas: #f1f5f9;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #f8fafc;
+    --bg-surface-subtle: #e2e8f0;
+    --bg-hover: rgba(0, 0, 0, 0.04);
+    --bg-active: rgba(0, 0, 0, 0.08);
+    
+    --border-subtle: #e2e8f0;
+    --border-medium: #cbd5e1;
+    --border-strong: #94a3b8;
+    
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    
+    --color-phosphor: #059669;
+    --color-phosphor-glow: rgba(5, 150, 105, 0.15);
+    --color-amber: #d97706;
+    --color-logic-cyan: #0284c7;
+    --color-trace-magenta: #db2777;
+    --color-bus-blue: #2563eb;
+    --color-danger: #dc2626;
+    
+    --graticule-line: rgba(15, 23, 42, 0.04);
+    --graticule-major: rgba(15, 23, 42, 0.08);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+  }
+
+  [dir="rtl"] body {
+    font-family: var(--font-fa);
+  }
+
+  /* Force LTR and tabular-nums on all code, hex, memory, binary, and math */
+  .code-ltr,
+  .font-mono,
+  code,
+  pre,
+  .tabular-nums,
+  [data-force-ltr="true"] {
+    direction: ltr !important;
+    text-align: left !important;
+    font-family: var(--font-mono) !important;
+    font-variant-numeric: tabular-nums !important;
+  }
+}
+
+/* Oscilloscope Graticule Pattern */
+.bg-graticule {
+  background-size: 24px 24px, 120px 120px;
+  background-image: 
+    linear-gradient(to right, var(--graticule-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--graticule-line) 1px, transparent 1px),
+    linear-gradient(to right, var(--graticule-major) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--graticule-major) 1px, transparent 1px);
+}
+
+/* Subtle CRT phosphor glow effect */
+.glow-phosphor {
+  text-shadow: 0 0 8px var(--color-phosphor-glow);
+}
+
+.glow-cyan {
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.4);
+}
+
+/* Desktop scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+[data-reduced-motion="true"] *,
+[data-reduced-motion="true"] *::before,
+[data-reduced-motion="true"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}

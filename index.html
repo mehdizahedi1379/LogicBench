@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LogicBench — Electronics & Microcontroller Workbench</title>
+    <meta
+      name="description"
+      content="A desktop-class local-first workbench for digital electronics, microcontrollers, and embedded systems engineering."
+    />
+    <meta name="application-name" content="LogicBench" />
+    <meta name="apple-mobile-web-app-title" content="LogicBench" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png" />
+
+    <!-- OpenGraph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LogicBench" />
+    <meta property="og:title" content="LogicBench — Electronics & Microcontroller Workbench" />
+    <meta
+      property="og:description"
+      content="A desktop-class local-first workbench for digital electronics, microcontrollers, and embedded systems engineering."
+    />
+    <meta property="og:image" content="/icon-512.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LogicBench — Electronics & Microcontroller Workbench" />
+    <meta
+      name="twitter:description"
+      content="A desktop-class local-first workbench for digital electronics, microcontrollers, and embedded systems engineering."
+    />
+    <meta name="twitter:image" content="/icon-512.png" />
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#090d16" />
+
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Schema.org Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "LogicBench",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All",
+        "description": "A desktop-class local-first workbench for digital electronics, microcontrollers, and embedded systems engineering.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Base Converter (Two's complement, IEEE-754, Endianness swap)",
+          "Bitwise calculator with interactive bit toggles and C mask generator",
+          "Boolean algebra truth table, Karnaugh map minimizer, and SVG gate diagrams",
+          "CRC, parity, checksum, and Hamming code simulator with error injection",
+          "ADC and DAC resolution, LSB, and quantization error calculator",
+          "Microcontroller Timer & PWM calculator with AVR, STM32, RP2040, ESP32 presets",
+          "UART, SPI, and I2C bus tools and address conflict checker",
+          "Register bitfield layout visualizer and C mask generator",
+          "Interactive timing diagram, logic labs, and FSM editor",
+          "Hardware knowledge base with Markdown notes, graph view, and BOM management"
+        ]
+      }
+    </script>
+  </head>
+  <body class="bg-canvas text-primary select-none overflow-hidden m-0 p-0 antialiased">
+    <div id="root" class="h-screen w-screen overflow-hidden"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

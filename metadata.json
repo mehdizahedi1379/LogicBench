@@ -1,0 +1,6 @@
+{
+  "name": "LogicBench",
+  "description": "A desktop-class local-first workbench for digital electronics, microcontrollers, and embedded systems engineering.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
